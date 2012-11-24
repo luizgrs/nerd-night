@@ -1,0 +1,29 @@
+body{
+	background-color: #ccc;
+	font-family: Arial, sans-serif;
+}
+
+h1{
+	font-size: 20pt;
+	font-weight: bold;
+}
+
+p {
+	font-size: 12pt;
+}
+
+#container {
+	background-color: #fff;
+	border: 1px solid #eee;
+	color: #ccc;
+	margin: 10px auto;
+	padding: 10px 0;
+	text-align: center;
+	width: 80%;
+	-webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;
+}
+
+#cvs {
+	height: 550px;
+	width: 550px;
+}
