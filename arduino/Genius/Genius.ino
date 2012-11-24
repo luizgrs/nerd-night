@@ -2,14 +2,14 @@
 int leds[] = {0,1,2,3};
 int switches[] = {8,9,10,11};
 
-struct round 
+struct rnd 
 {
     int led;
-    struct round* prox;
-} typedef round;
+    struct rnd *prox;
+};
 
-round* round_ini = NULL;
-round* last_round = NULL;
+struct rnd *rnd_ini = NULL;
+struct rnd *last_rnd = NULL;
 
 void setup() {
   int i;
@@ -28,7 +28,7 @@ void loop() {
   int lastPick = pickOne();
   
   //displays sequence to the user
-  round* r = round_ini;
+  struct rnd *r = rnd_ini;
   int t;
   
   while(r!=NULL)
@@ -68,14 +68,14 @@ void fail() {
 }
 
 void reset() {
-  if(round_ini != NULL)
-    freeRounds(round_ini);
+  if(rnd_ini != NULL)
+    freernds(rnd_ini);
 }
 
-void freeRounds(round* r)
+void freernds(struct rnd *r)
 {
     if(r->prox !=NULL)
-        freeRounds(r);
+        freernds(r);
     
     free(r);
 }
@@ -108,16 +108,16 @@ int readInput() {
 int pickOne() {
   int pick = random(0,3);
   
-  round* novo_round = malloc(sizeof(round));
-  novo_round->led = pick;
-  novo_round->prox = NULL;
+  rnd* novo_rnd = malloc(sizeof(rnd));
+  novo_rnd->led = pick;
+  novo_rnd->prox = NULL;
   
-  if(round_ini==NULL)
-    round_ini = novo_round;  
+  if(rnd_ini==NULL)
+    rnd_ini = novo_rnd;  
   else
-    last_round->prox = novo_round;
+    last_rnd->prox = novo_rnd;
 
-   last_round = novo_round;
+   last_rnd = novo_rnd;
   
   return pick;
 }
