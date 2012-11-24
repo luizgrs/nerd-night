@@ -16,6 +16,7 @@ p {
 	background-color: #fff;
 	border: 1px solid #eee;
 	color: #999	;
+	height: 590px;
 	margin: 10px auto;
 	padding: 10px 0;
 	text-align: center;
@@ -23,7 +24,130 @@ p {
 	-webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;
 }
 
-#cvs {
-	height: 550px;
-	width: 550px;
+#genius-main {
+	background-color: #000;
+	height: 450px;
+	width: 450px;
+	position: relative;
+	left: 325px;
+	top: 50px;
+	-webkit-border-radius:250px; -moz-border-radius:250px; border-radius:250px;	
+	z-index:2;
 }
+
+#genius-green{
+	background-color: #0F0;
+	border: 5px outset #0F0;
+	height: 180px;
+	width: 180px;
+	float: left;
+	position: relative;
+	left: 30px;
+	top: 30px;
+	-webkit-border-radius:250px 0 0 0; -moz-border-radius:250px 0 0 0; border-radius:250px 0 0 0;	
+	z-index:3;
+}
+
+#genius-green:active{
+	background-color: #99F;
+	border: 5px inset #09F;
+}
+
+#genius-green-inset{
+	background-color: #000;
+	height: 90px;
+	width: 90px;
+	position: absolute;
+	right: -10px;
+	bottom: -10px;
+	-webkit-border-radius:250px 0 0 0; -moz-border-radius:250px 0 0 0; border-radius:250px 0 0 0;	
+	z-index:4;
+}
+
+#genius-red{
+	background-color: #F00;
+	border: 5px outset #F00;
+	height: 180px;
+	width: 180px;
+	float: right;
+	position: relative;
+	right: 30px;
+	top: 30px;
+	-webkit-border-radius:0 250px 0 0; -moz-border-radius:0 250px 0 0; border-radius:0 250px 0 0;	
+	z-index:3;
+}
+
+#genius-red:active{
+	background-color: #99F;
+	border: 5px inset #09F;
+}
+
+#genius-red-inset{
+	background-color: #000;
+	height: 90px;
+	width: 90px;
+	position: absolute;
+	left: -10px;
+	bottom: -10px;
+	-webkit-border-radius:0 250px 0 0; -moz-border-radius:0 250px 0 0; border-radius:0 250px 0 0;	
+	z-index:4;
+}
+
+#genius-blue{
+	background-color: #00F;
+	border: 5px outset #00F;
+	height: 180px;
+	width: 180px;
+	float: right;
+	position: relative;
+	right: 30px;
+	bottom: -45px;
+	-webkit-border-radius:0 0 250px 0; -moz-border-radius:0 0 250px 0; border-radius:0 0 250px 0;	
+	z-index:3;
+}
+
+#genius-blue:active{
+	background-color: #99F;
+	border: 5px inset #09F;
+}
+
+#genius-blue-inset{
+	background-color: #000;
+	height: 90px;
+	width: 90px;
+	position: absolute;
+	left: -10px;
+	top: -10px;
+	-webkit-border-radius:0 0 250px 0; -moz-border-radius:0 0 250px 0; border-radius:0 0 250px 0;	
+	z-index:4;
+}
+
+#genius-yellow{
+	background-color: #FF0;
+	border: 5px outset #FF0;
+	height: 180px;
+	width: 180px;
+	float: left;
+	position: relative;
+	left: 30px;
+	bottom: -45px;
+	-webkit-border-radius:0 0 0 250px; -moz-border-radius:0 0 0 250px; border-radius:0 0 0 250px;
+	z-index:3;
+}
+
+#genius-yellow:active{
+	background-color: #99F;
+	border: 5px inset #09F;
+}
+
+#genius-yellow-inset{
+	background-color: #000;
+	height: 90px;
+	width: 90px;
+	position: absolute;
+	right: -10px;
+	top: -10px;
+	-webkit-border-radius:0 0 0 250px; -moz-border-radius:0 0 0 250px; border-radius:0 0 0 250px;
+	z-index:4;
+}
+

@@ -22,6 +22,7 @@ window.onload = function cvs(){
 		////////////////
 		// GREEN BUTTON
 		////////////////
+		var path = new Path();
 		context.fillStyle = "rgb(0,255,0)";
 		context.beginPath();
 		var delta = Math.PI * 0.02;
@@ -33,6 +34,7 @@ window.onload = function cvs(){
 		context.arc(w,h,115,Math.PI*1+delta,Math.PI*1.5-delta,false);
 		context.closePath();
 		context.fill();
+		context.addHitRegion({ id: 'VERDE' });
 		
 		
 		////////////////
@@ -80,5 +82,17 @@ window.onload = function cvs(){
 		context.closePath();
 		context.fill();
 		
+		context.beginPath();
+		context.fillStyle = "rgb(216,216,216)";
+		context.arc(w,h,80,0,Math.PI*2,false);		
+		context.closePath();
+		context.fill();
 	}
+	
+	canvas.onclick = function (event)
+    {
+        if (event.region) {
+            alert('You clicked ' + event.region);
+        }
+    }
 }
