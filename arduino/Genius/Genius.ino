@@ -31,7 +31,7 @@ void loop() {
   struct rnd *r = rnd_ini;
   int t;
   
-  while(r!=NULL)
+  while(r!=NULL){
     blinkLed(r->led);
     r = r->prox;
   }
