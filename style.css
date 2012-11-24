@@ -1,4 +1,4 @@
-body{
+﻿body{
 	background-color: #ccc;
 	font-family: Arial, sans-serif;
 }
@@ -48,9 +48,9 @@ p {
 	z-index:3;
 }
 
-#genius-green:active{
-	background-color: #99F;
-	border: 5px inset #09F;
+#genius-green:active, #genius-green.active{
+	background-color: #9F9;
+	border: 5px inset #9F9;
 }
 
 #genius-green-inset{
@@ -77,9 +77,9 @@ p {
 	z-index:3;
 }
 
-#genius-red:active{
-	background-color: #99F;
-	border: 5px inset #09F;
+#genius-red:active,#genius-red.active{
+	background-color: #F99;
+	border: 5px inset #F99;
 }
 
 #genius-red-inset{
@@ -101,14 +101,14 @@ p {
 	float: right;
 	position: relative;
 	right: 30px;
-	bottom: -45px;
+	bottom: -40px;
 	-webkit-border-radius:0 0 250px 0; -moz-border-radius:0 0 250px 0; border-radius:0 0 250px 0;	
 	z-index:3;
 }
 
-#genius-blue:active{
+#genius-blue:active,#genius-blue.active{
 	background-color: #99F;
-	border: 5px inset #09F;
+	border: 5px inset #99F;
 }
 
 #genius-blue-inset{
@@ -130,16 +130,15 @@ p {
 	float: left;
 	position: relative;
 	left: 30px;
-	bottom: -45px;
+	bottom: -40px;
 	-webkit-border-radius:0 0 0 250px; -moz-border-radius:0 0 0 250px; border-radius:0 0 0 250px;
 	z-index:3;
 }
 
-#genius-yellow:active{
-	background-color: #99F;
-	border: 5px inset #09F;
+#genius-yellow:active,#genius-yellow.active{
+	background-color: #FF9;
+	border: 5px inset #FF9;
 }
-
 #genius-yellow-inset{
 	background-color: #000;
 	height: 90px;
@@ -150,4 +149,3 @@ p {
 	-webkit-border-radius:0 0 0 250px; -moz-border-radius:0 0 0 250px; border-radius:0 0 0 250px;
 	z-index:4;
 }
-
