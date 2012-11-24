@@ -1,8 +1,15 @@
 
 int leds[] = {0,1,2,3};
 int switches[] = {8,9,10,11};
-int num_rounds = 0;
-int rounds[0];
+
+struct rnd 
+{
+    int led;
+    struct rnd *prox;
+};
+
+struct rnd *rnd_ini = NULL;
+struct rnd *last_rnd = NULL;
 
 void setup() {
   int i;
@@ -21,9 +28,12 @@ void loop() {
   int lastPick = pickOne();
   
   //displays sequence to the user
+  struct rnd *r = rnd_ini;
   int t;
-  for(t=0;t<num_rounds;t++) {
-    blinkLed(rounds[t]);
+  
+  while(r!=NULL){
+    blinkLed(r->led);
+    r = r->prox;
   }
  
   //waits for user input
@@ -58,8 +68,16 @@ void fail() {
 }
 
 void reset() {
-  num_rounds = 0;
-  //TODO limpar o array rounds
+  if(rnd_ini != NULL)
+    freernds(rnd_ini);
+}
+
+void freernds(struct rnd *r)
+{
+    if(r->prox !=NULL)
+        freernds(r);
+    
+    free(r);
 }
 
 void blinkLed(int ledIndex) {
@@ -82,14 +100,24 @@ int readInput() {
     for(i=0;i<3;i++) {
       if(digitalRead(switches[i]==HIGH))
         return i;
-      delay(10);
     }
+    delay(10);    
   }
 }
 
 int pickOne() {
   int pick = random(0,3);
-  //TODO adicionar pick ao vetor de rounds
-  num_rounds++;
+  
+  struct rnd *novo_rnd = (struct rnd*)malloc(sizeof(struct rnd));
+  novo_rnd->led = pick;
+  novo_rnd->prox = NULL;
+  
+  if(rnd_ini==NULL)
+    rnd_ini = novo_rnd;  
+  else
+    last_rnd->prox = novo_rnd;
+
+   last_rnd = novo_rnd;
+  
   return pick;
 }
