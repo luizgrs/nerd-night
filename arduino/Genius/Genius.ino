@@ -108,7 +108,7 @@ int readInput() {
 int pickOne() {
   int pick = random(0,3);
   
-  rnd* novo_rnd = malloc(sizeof(rnd));
+  struct rnd *novo_rnd = (struct rnd*)malloc(sizeof(struct rnd));
   novo_rnd->led = pick;
   novo_rnd->prox = NULL;
   
