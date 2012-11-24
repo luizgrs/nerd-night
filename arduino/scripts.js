@@ -1,7 +1,7 @@
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 navigator.GetGamepads = navigator.Gamepads || navigator.webkitGetGamepads || navigator.msGetGamePads || navigator.mozGetGamePads
 window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.mozRequestAnimationFrame ||window.webkitRequestAnimationFrame
-var buttonPressed;
+var buttonPressed; var buttonUnpressed; var botoes_old;
 
 window.URL = window.URL || window.webkitURL;
 window.addEventListener('load', load);
@@ -42,9 +42,9 @@ function checkGamePadStatus()
 {
     var gamepad = navigator.GetGamepads()[0];
     var h1 = document.querySelector('h1');
+    var botoes = 0;    
     if(gamepad)
     {
-        var botoes = 0;
         botoes = (gamepad.buttons[0] == 1 ? 1 : 0)  
                   | (gamepad.buttons[1] == 1 ? 2 : 0)
                   | (gamepad.buttons[2] == 1 ? 4 : 0)
@@ -58,9 +58,14 @@ function checkGamePadStatus()
         h1.innerText = 'Gamepad Botões: ' + cor_botoes.trim();
         if(buttonPressed)
             buttonPressed(botoes);
+        
+        var check = (botoes | botoes_old) ^ botoes;
+        if(check != 0 && buttonUnpressed)
+            buttonUnpressed(check);
     }       
     else 
         h1.innerText = 'No Gamepad!'
             
+    botoes_old = botoes;
     scheduleNextTick();
 }
